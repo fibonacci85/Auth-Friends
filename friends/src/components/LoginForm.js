@@ -21,11 +21,12 @@ import axios from 'axios';
 
     login = (e) => {
         e.preventDefault();
+        console.log(this.state.credentials)
         axios.post('http://localhost:5000/api/login',this.state.credentials)
             .then(res => {
                 // console.log(res)
                 localStorage.setItem('token', res.data.payload);
-                this.props.history.push('/friends');
+                this.props.history.push('/friends');   /// ('/protected) ?
             })
             .catch(err => {
                 console.log(err);

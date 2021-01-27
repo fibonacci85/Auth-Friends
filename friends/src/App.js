@@ -2,13 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import FriendsList from './components/FriendsList';
+import PrivateRoute from './components/PrivateRoute';
+
 
 function App() {
-
-
-
-
-
 
   return (
     <Router>
@@ -16,12 +13,12 @@ function App() {
       
         <Link to="/login">Login</Link> 
         <Link to="/friends">Friend List</Link>
+        
 
         <Switch>
           <Route path="/login" component={LoginForm}/>
-          {/* <Route component={LoginForm}/> */}
-          <Route path="/friends" component={FriendsList}/>
-          {/* <Route component={FriendsList}/> */}
+          <PrivateRoute exact path="/friends" component={FriendsList}/>
+          
         </Switch>
 
       </div>
