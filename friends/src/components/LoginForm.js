@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export class LoginForm extends React.Component{
+    class LoginForm extends React.Component{
 
 
     state = {
@@ -25,7 +25,7 @@ export class LoginForm extends React.Component{
             .then(res => {
                 // console.log(res)
                 localStorage.setItem('token', res.data.payload);
-                // this.props.history.push('/protected');
+                this.props.history.push('/FriendsList');
             })
             .catch(err => {
                 console.log(err);
@@ -61,4 +61,6 @@ return(
 )
 }
 }
+
+export default LoginForm;
 
