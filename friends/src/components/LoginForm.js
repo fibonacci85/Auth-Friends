@@ -5,24 +5,21 @@ import axios from 'axios';
 
 
     state = {
-    credentials:{
     username:"",
     password:""
-    }};
+    };
 
     handleChange = (e) => {
     this.setState({
-        credentials:{
-            ...this.state.credentials,
+            ...this.state,
             [e.target.name]: e.target.value
-        }
     });
     };
 
     login = (e) => {
         e.preventDefault();
-        console.log(this.state.credentials)
-        axios.post('http://localhost:5000/api/login',this.state.credentials)
+        console.log(this.state)
+        axios.post('http://localhost:5000/api/login',this.state)
             .then(res => {
                 // console.log(res)
                 localStorage.setItem('token', res.data.payload);
@@ -42,7 +39,7 @@ return(
     <input
        type="text"
        name="username"
-       value={this.state.credentials.username}
+       value={this.state.username}
        onChange={this.handleChange}
        placeholder="username:"
     />
@@ -50,7 +47,7 @@ return(
     <input
        type="password"
        name="password"
-       value={this.state.credentials.password}
+       value={this.state.password}
        onChange={this.handleChange}
        placeholder="password:"
     />

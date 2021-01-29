@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <Route path="/login" component={LoginForm}/>
           <PrivateRoute exact path="/friends" component={FriendsList}/>
-          
+          <Route path="/" component={LoginForm}/>
         </Switch>
 
       </div>

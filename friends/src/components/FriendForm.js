@@ -1,9 +1,9 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react';
 import {v4 as uuid} from 'uuid';
 
 
-class FriendForm extends React.Component {
+export class FriendForm extends React.Component {
 
   state = {
       friend: {
